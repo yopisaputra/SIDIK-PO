@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form class="row g-3" action='/vit/predict' method='POST'>
+    <div class="col-md-12">
+      <label for="month1" class="form-label">Bulan pertama</label>
+      <input type="number" class="form-control" id="month1" name="month1" min="0" required>
+    </div>
+    <div class="col-md-12">
+      <label for="month2" class="form-label">Bulan kedua</label>
+      <input type="number" class="form-control" id="month2" name="month2" min="0" required>
+    </div>
+    <div class="col-12">
+      <label for="month3" class="form-label">Bulan ketiga</label>
+      <input type="number" class="form-control" id="month3" name="month3" min="0" required>
+    </div>
+    <div class="col-12">
+      <label for="month4" class="form-label">Bulan keempat</label>
+      <input type="number" class="form-control" id="month4" name="month4" min="0" required>
+    </div>
+    <div class="col-md-12">
+      <label for="month5" class="form-label">Bulan kelima</label>
+      <input type="number" class="form-control" id="month5" name="month5" min="0" required>
+    </div>
+    <div class="col-6">
+      <button type="submit" class="btn btn-primary">Predict</button>
+      <button type="reset" class="btn btn-warning">Reset</button>
+    </div>
+    <h3 class="text-center"> {{ prediction_text }} </h3>
+  </form>
+
+
+{% endblock %}

@@ -2,6 +2,7 @@
 
 {% block content %}
 
+<h1 class="text-center display-5">Prediksi Obat Amoxicillin</h1>
 <form class="row g-3" action='/amox/predict' method='POST'>
     <div class="col-md-12">
       <label for="month1" class="form-label">Bulan pertama</label>
@@ -27,7 +28,8 @@
       <button type="submit" class="btn btn-primary">Predict</button>
       <button type="reset" class="btn btn-warning">Reset</button>
     </div>
-    <h3 class="text-center"> {{ prediction_text }} </h3>
+    <h4 class="text-center"> {{ prediction_text }} </h4>
+    <h5 class="text-center"> {{ accuration_text }} </h5>
   </form>
 
 

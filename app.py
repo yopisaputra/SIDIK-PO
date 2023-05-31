@@ -3,6 +3,11 @@ import tensorflow as tf
 import numpy as np
 import pandas as pd
 import os
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import io
+from base64 import b64encode
 
 # set run without cuda
 tf.config.set_visible_devices([], 'GPU')
@@ -78,11 +83,14 @@ def predict_ambrox():
         predict = predict.astype(int)
         output = str(predict[0][0])
 
+        image = "../static/ambrox_output.png"
+
         mapetrain = 7.15
         mapetest = 4.44
         akurasi = 100-((mapetrain+mapetest)/2)
         return render_template("ambrox.html", prediction_text="Hasil peramalan obat Ambroxol bulan berikutnya adalah {}".format(output),
-                            accuration_text="Akurasi peramalan sebesar {}%".format(round(akurasi, 1)))
+                            accuration_text="Akurasi peramalan sebesar {}%".format(round(akurasi, 1)),
+                            image = image)
     else:
         return render_template('ambrox.html')
 
@@ -116,11 +124,14 @@ def predict_amox():
         predict = predict.astype(int)
         output = str(predict[0][0])
 
+        image = "../static/amox_output.png"
+
         mapetrain = 7.22
         mapetest = 3.26
         akurasi = 100-((mapetrain+mapetest)/2)
         return render_template("amox.html", prediction_text="Hasil peramalan obat Amoxicillin bulan berikutnya adalah {}".format(output),
-                               accuration_text="Akurasi peramalan sebesar {}%".format(round(akurasi, 1)))
+                               accuration_text="Akurasi peramalan sebesar {}%".format(round(akurasi, 1)),
+                               image = image)
     else:
         return render_template('amox.html')
 
@@ -153,12 +164,15 @@ def predict_ctm():
         predict = (predict * (max_ctm - min_ctm)) + min_ctm
         predict = predict.astype(int)
         output = str(predict[0][0])
+        
+        image = "../static/ctm_output.png"
 
         mapetrain = 6.94
         mapetest = 3.77
         akurasi = 100-((mapetrain+mapetest)/2)
         return render_template("ctm.html", prediction_text="Hasil peramalan obat CTM bulan berikutnya adalah {}".format(output),
-                               accuration_text="Akurasi peramalan sebesar {}%".format(round(akurasi, 1)))
+                               accuration_text="Akurasi peramalan sebesar {}%".format(round(akurasi, 1)),
+                               image = image)
     else:
         return render_template('ctm.html')
 
@@ -192,11 +206,14 @@ def predict_para():
         predict = predict.astype(int)
         output = str(predict[0][0])
 
+        image = "../static/para_output.png"
+
         mapetrain = 4.47
         mapetest = 4.04
         akurasi = 100-((mapetrain+mapetest)/2)
         return render_template("para.html", prediction_text="Hasil peramalan obat Paracetamol bulan berikutnya adalah {}".format(output),
-                               accuration_text="Akurasi peramalan sebesar {}%".format(round(akurasi, 1)))
+                               accuration_text="Akurasi peramalan sebesar {}%".format(round(akurasi, 1)),
+                               image = image)
     else:
         return render_template('para.html')
 
@@ -230,11 +247,29 @@ def predict_vit():
         predict = predict.astype(int)
         output = str(predict[0][0])
 
+        # x = np.linspace(input_df, stop= True)
+        # # x = x.reshape(50, 1)
+        # plt.plot(x, predict)
+        # plt.title("Model Prediction")
+        # plt.xlabel("X")
+        # plt.ylabel("Y")
+
+        # fig = plt.gcf()
+        # plt.close()
+        
+        # buf = io.BytesIO()
+        # fig.savefig(buf, format='png')
+        # buf.seek(0)
+        # encoded_image = b64encode(buf.read())
+
+        image = "../static/vit_output.png"
+
         mapetrain = 4.07
         mapetest = 3.86
         akurasi = 100-((mapetrain+mapetest)/2)
         return render_template("vit.html", prediction_text="Hasil peramalan obat Vitamin B Complex bulan berikutnya adalah {}".format(output),
-                               accuration_text="Akurasi peramalan sebesar {}%".format(round(akurasi, 1)))
+                               accuration_text="Akurasi peramalan sebesar {}%".format(round(akurasi, 1)),
+                               image = image)
     else:
         return render_template('vit.html')
     

@@ -3,65 +3,69 @@
 {% block content %}
 
 <h1 class="text-center display-5">Prediksi Obat Ambroxol</h1>
-<form class="row g-3" action='/ambrox/predict' method='POST'>
-  <div class="row g-3 align-items-center">
-    <div class="col-md-3">
-      <label for="month1" class="col-form-label">Jumlah penggunaan obat bulan pertama</label>
-    </div>
-    <div class="col-auto">
-      <input type="number" class="form-control" id="month1" name="month1" min=0 required>
-    </div>
+<div class="row">
+  <div class="col-sm-6">
+    <form class="row g-3" action='/vit/predict' method='POST'>
+
+      <div class="row g-3 align-items-center">
+        <div class="col-md-6">
+          <label for="month1" class="col-form-label">Jumlah penggunaan obat bulan pertama</label>
+        </div>
+        <div class="col-auto">
+          <input type="number" class="form-control" id="month1" name="month1" min=0 required>
+        </div>
+      </div>
+    
+      <div class="row g-3 align-items-center">
+        <div class="col-md-6">
+          <label for="month2" class="col-form-label">Jumlah penggunaan obat bulan kedua</label>
+        </div>
+        <div class="col-auto">
+          <input type="number" class="form-control" id="month2" name="month2" min=0 required>
+        </div>
+      </div>
+    
+      <div class="row g-3 align-items-center">
+        <div class="col-md-6">
+          <label for="month3" class="col-form-label">Jumlah penggunaan obat bulan ketiga</label>
+        </div>
+        <div class="col-auto">
+          <input type="number" class="form-control" id="month3" name="month3" min=0 required>
+        </div>
+      </div>
+    
+      <div class="row g-3 align-items-center">
+        <div class="col-md-6">
+          <label for="month4" class="col-form-label">Jumlah penggunaan obat bulan keempat</label>
+        </div>
+        <div class="col-auto">
+          <input type="number" class="form-control" id="month4" name="month4" min=0 required>
+        </div>
+      </div>
+    
+      <div class="row g-3 align-items-center">
+        <div class="col-md-6">
+          <label for="month5" class="col-form-label">Jumlah penggunaan obat bulan kelima</label>
+        </div>
+        <div class="col-auto">
+          <input type="number" class="form-control" id="month5" name="month5" min=0 required>
+        </div>
+      </div>
+    
+        <div class="col-6">
+          <button type="submit" class="btn btn-primary">Predict</button>
+          <button type="reset" class="btn btn-warning">Reset</button>
+        </div>
+    </form>
   </div>
 
-  <div class="row g-3 align-items-center">
-    <div class="col-md-3">
-      <label for="month2" class="col-form-label">Jumlah penggunaan obat bulan kedua</label>
-    </div>
-    <div class="col-auto">
-      <input type="number" class="form-control" id="month2" name="month2" min=0 required>
-    </div>
+  <div class="col-sm-6">
+    <img src="{{ image }}", alt="Image">
   </div>
+</div>
 
-  <div class="row g-3 align-items-center">
-    <div class="col-md-3">
-      <label for="month3" class="col-form-label">Jumlah penggunaan obat bulan ketiga</label>
-    </div>
-    <div class="col-auto">
-      <input type="number" class="form-control" id="month3" name="month3" min=0 required>
-    </div>
-  </div>
-
-  <div class="row g-3 align-items-center">
-    <div class="col-md-3">
-      <label for="month4" class="col-form-label">Jumlah penggunaan obat bulan keempat</label>
-    </div>
-    <div class="col-auto">
-      <input type="number" class="form-control" id="month4" name="month4" min=0 required>
-    </div>
-  </div>
-
-  <div class="row g-3 align-items-center">
-    <div class="col-md-3">
-      <label for="month5" class="col-form-label">Jumlah penggunaan obat bulan kelima</label>
-    </div>
-    <div class="col-auto">
-      <input type="number" class="form-control" id="month5" name="month5" min=0 required>
-    </div>
-  </div>
-
-  <!-- <div class="col-md-12">
-      <label for="month5" class="form-label">Jumlah penggunaan obat bulan kelima</label>
-      <input type="number" class="form-control" id="month5" name="month5" min="0" required>
-  </div> -->
-
-    <div class="col-6">
-      <button type="submit" class="btn btn-primary">Predict</button>
-      <button type="reset" class="btn btn-warning">Reset</button>
-    </div>
-  </form>
-
-  <h4 class="text-center"> {{ prediction_text }} </h4>
-  <h5 class="text-center"> {{ accuration_text }} </h5>
+<h4 class="text-center"> {{ prediction_text }} </h4>
+<h5 class="text-center"> {{ accuration_text }} </h5>
 
 
 {% endblock %}

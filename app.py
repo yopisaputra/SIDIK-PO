@@ -51,7 +51,9 @@ max_vit = np.max(dataset_vit)
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    image = "../static/image/gambarobat.jpg"
+
+    return render_template("index.html", image = image)
 
 
 @app.route("/ambrox")
@@ -83,12 +85,12 @@ def predict_ambrox():
         predict = predict.astype(int)
         output = str(predict[0][0])
 
-        image = "../static/ambrox_output.png"
+        image = "../static/plot/ambrox_output.png"
 
         mapetrain = 7.15
         mapetest = 4.44
         akurasi = 100-((mapetrain+mapetest)/2)
-        return render_template("ambrox.html", prediction_text="Hasil peramalan obat Ambroxol bulan berikutnya adalah {}".format(output),
+        return render_template("ambrox.html", prediction_text="Hasil peramalan obat Ambroxol bulan berikutnya adalah {} tablet".format(output),
                             accuration_text="Akurasi peramalan sebesar {}%".format(round(akurasi, 1)),
                             image = image)
     else:
@@ -124,12 +126,12 @@ def predict_amox():
         predict = predict.astype(int)
         output = str(predict[0][0])
 
-        image = "../static/amox_output.png"
+        image = "../static/plot/amox_output.png"
 
         mapetrain = 7.22
         mapetest = 3.26
         akurasi = 100-((mapetrain+mapetest)/2)
-        return render_template("amox.html", prediction_text="Hasil peramalan obat Amoxicillin bulan berikutnya adalah {}".format(output),
+        return render_template("amox.html", prediction_text="Hasil peramalan obat Amoxicillin bulan berikutnya adalah {} tablet".format(output),
                                accuration_text="Akurasi peramalan sebesar {}%".format(round(akurasi, 1)),
                                image = image)
     else:
@@ -165,12 +167,12 @@ def predict_ctm():
         predict = predict.astype(int)
         output = str(predict[0][0])
         
-        image = "../static/ctm_output.png"
+        image = "../static/plot/ctm_output.png"
 
         mapetrain = 6.94
         mapetest = 3.77
         akurasi = 100-((mapetrain+mapetest)/2)
-        return render_template("ctm.html", prediction_text="Hasil peramalan obat CTM bulan berikutnya adalah {}".format(output),
+        return render_template("ctm.html", prediction_text="Hasil peramalan obat CTM bulan berikutnya adalah {} tablet".format(output),
                                accuration_text="Akurasi peramalan sebesar {}%".format(round(akurasi, 1)),
                                image = image)
     else:
@@ -206,12 +208,12 @@ def predict_para():
         predict = predict.astype(int)
         output = str(predict[0][0])
 
-        image = "../static/para_output.png"
+        image = "../static/plot/para_output.png"
 
         mapetrain = 4.47
         mapetest = 4.04
         akurasi = 100-((mapetrain+mapetest)/2)
-        return render_template("para.html", prediction_text="Hasil peramalan obat Paracetamol bulan berikutnya adalah {}".format(output),
+        return render_template("para.html", prediction_text="Hasil peramalan obat Paracetamol bulan berikutnya adalah {} tablet".format(output),
                                accuration_text="Akurasi peramalan sebesar {}%".format(round(akurasi, 1)),
                                image = image)
     else:
@@ -262,12 +264,12 @@ def predict_vit():
         # buf.seek(0)
         # encoded_image = b64encode(buf.read())
 
-        image = "../static/vit_output.png"
+        image = "../static/plot/vit_output.png"
 
         mapetrain = 4.07
         mapetest = 3.86
         akurasi = 100-((mapetrain+mapetest)/2)
-        return render_template("vit.html", prediction_text="Hasil peramalan obat Vitamin B Complex bulan berikutnya adalah {}".format(output),
+        return render_template("vit.html", prediction_text="Hasil peramalan obat Vitamin B Complex bulan berikutnya adalah {} tablet".format(output),
                                accuration_text="Akurasi peramalan sebesar {}%".format(round(akurasi, 1)),
                                image = image)
     else:

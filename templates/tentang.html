@@ -2,6 +2,24 @@
 
 {% block content %}
 
-<h2> Ini tentang sistem</h2>
+<h1 class="text-center display-5">Tentang</h1>
+<br>
+
+<p class="lh-base fs-4">Sistem ini dibuat bertujuan untuk memprediksi kuantitas penggunaan obat Ambroxol, Amoxicillin, 
+    CTM, Paracetamol, dan Vitamin B Complex. Sistem ini dibangun dengan menggunakan bahasa pemrograman Python, pustaka pembelajaran mesin Tensorflow,
+    dan kerangka kerja aplikasi web Flask</p>
+<br>
+
+<div class="row justify-content-center">
+    <div class="col-sm-4">
+        <img src="{{ imageflask }}" class="img-fluid" alt="Image Flask">
+    </div>
+    <div class="col-sm-4">
+        <img src="{{ imagetensorflow }}" class="img-fluid" alt="Image Tensorflow">
+    </div>
+    <div class="col-sm-4">
+        <img src="{{ imagepython }}" class="img-fluid" alt="Image Python">
+    </div>
+</div>
 
 {% endblock %}

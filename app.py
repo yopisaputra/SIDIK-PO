@@ -56,6 +56,8 @@ def home():
     return render_template("index.html", image = image)
 
 
+
+
 @app.route("/ambrox")
 def ambrox():
     return render_template("ambrox.html")
@@ -275,9 +277,16 @@ def predict_vit():
     else:
         return render_template('vit.html')
     
+    
 @app.route("/tentang")
 def tentang():
-    return render_template("tentang.html")
+    imgflask = "../static/image/flask.png"
+    imgpy = "../static/image/python.png"
+    imgtf = "../static/image/tf.png"
+
+    return render_template("tentang.html", imageflask = imgflask, 
+                           imagepython = imgpy, imagetensorflow = imgtf)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

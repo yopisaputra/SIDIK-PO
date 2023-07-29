@@ -3,11 +3,6 @@ import tensorflow as tf
 import numpy as np
 import pandas as pd
 import os
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-import io
-from base64 import b64encode
 
 # set run without cuda
 tf.config.set_visible_devices([], 'GPU')
@@ -89,8 +84,8 @@ def predict_ambrox():
 
         image = "../static/plot/ambrox_output.png"
 
-        mapetrain = 7.15
-        mapetest = 4.44
+        mapetrain = 7.18
+        mapetest = 4.38
         akurasi = 100-((mapetrain+mapetest)/2)
         return render_template("ambrox.html", prediction_text="Hasil peramalan obat Ambroxol bulan berikutnya adalah {} tablet".format(output),
                             accuration_text="Akurasi peramalan sebesar {}%".format(round(akurasi, 1)),
@@ -130,8 +125,8 @@ def predict_amox():
 
         image = "../static/plot/amox_output.png"
 
-        mapetrain = 7.22
-        mapetest = 3.26
+        mapetrain = 7.30
+        mapetest = 3.27
         akurasi = 100-((mapetrain+mapetest)/2)
         return render_template("amox.html", prediction_text="Hasil peramalan obat Amoxicillin bulan berikutnya adalah {} tablet".format(output),
                                accuration_text="Akurasi peramalan sebesar {}%".format(round(akurasi, 1)),
@@ -171,8 +166,8 @@ def predict_ctm():
         
         image = "../static/plot/ctm_output.png"
 
-        mapetrain = 6.94
-        mapetest = 3.77
+        mapetrain = 7.28
+        mapetest = 3.30
         akurasi = 100-((mapetrain+mapetest)/2)
         return render_template("ctm.html", prediction_text="Hasil peramalan obat CTM bulan berikutnya adalah {} tablet".format(output),
                                accuration_text="Akurasi peramalan sebesar {}%".format(round(akurasi, 1)),
@@ -212,8 +207,8 @@ def predict_para():
 
         image = "../static/plot/para_output.png"
 
-        mapetrain = 4.47
-        mapetest = 4.04
+        mapetrain = 4.50
+        mapetest = 4.01
         akurasi = 100-((mapetrain+mapetest)/2)
         return render_template("para.html", prediction_text="Hasil peramalan obat Paracetamol bulan berikutnya adalah {} tablet".format(output),
                                accuration_text="Akurasi peramalan sebesar {}%".format(round(akurasi, 1)),
@@ -268,8 +263,8 @@ def predict_vit():
 
         image = "../static/plot/vit_output.png"
 
-        mapetrain = 4.07
-        mapetest = 3.86
+        mapetrain = 3.86
+        mapetest = 4.01
         akurasi = 100-((mapetrain+mapetest)/2)
         return render_template("vit.html", prediction_text="Hasil peramalan obat Vitamin B Complex bulan berikutnya adalah {} tablet".format(output),
                                accuration_text="Akurasi peramalan sebesar {}%".format(round(akurasi, 1)),

@@ -51,8 +51,6 @@ def home():
     return render_template("index.html", image = image)
 
 
-
-
 @app.route("/ambrox")
 def ambrox():
     return render_template("ambrox.html")
